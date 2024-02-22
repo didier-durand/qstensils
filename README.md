@@ -2,6 +2,8 @@
 
 # qstensils: utility scripts for Amazon Q
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Diverse utility scripts to explore and operate Amazon Q for Business Use. 
 
 Amazon Q is a fully managed, generative-AI powered assistant that you can configure to answer questions, provide summaries, generate content, and complete tasks based on data in your enterprise. Amazon Q provides immediate and relevant information to employees, and helps streamline tasks and accelerate problem solving.
