@@ -9,7 +9,7 @@ Amazon Q is a fully managed, generative-AI powered assistant that you can config
 ## To obtain a list indexed documents with their metadata
 to obtain a full list of all documents, enter on command line from /src directory:
 ```shell
-python3 list_docs.py --app_id <q-app-id> --idx_id <q_idx-id>  
+python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
 ```
 
 some example:
