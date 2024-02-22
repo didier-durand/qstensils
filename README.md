@@ -1,3 +1,5 @@
+<img src="img/q-logo.png" height="120">
+
 # qstensils: utility scripts for Amazon Q
 
 Diverse utility scripts to explore and operate Amazon Q for Business Use. 
