@@ -17,49 +17,49 @@ some example:
     <.....> 
     {
         "createdAt": "2024-02-21 11:31:00.618000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Ying xiong.json",
+        "documentId": "s3://bucket-name/Ying xiong.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:25.755000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.500000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Watership Down.json",
+        "documentId": "s3://bucket-name/Watership Down.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:30.810000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.236000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Unforgiven.json",
+        "documentId": "s3://bucket-name/Unforgiven.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:02.884000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.238000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Viskningar och rop.json",
+        "documentId": "s3://bucket-name/Viskningar och rop.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:14.965000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.422000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Togo.json",
+        "documentId": "s3://bucket-name/Togo.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:09.220000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.709000+01:00",
-        "documentId": "s3://aws-q-didier-durand/What Ever Happened to Baby Jane?.json",
+        "documentId": "s3://bucket-name/What Ever Happened to Baby Jane?.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:46.031000+01:00"
     },
     {
         "createdAt": "2024-02-21 11:31:00.698000+01:00",
-        "documentId": "s3://aws-q-didier-durand/Vicky Donor.json",
+        "documentId": "s3://bucket-name/Vicky Donor.json",
         "error": {},
         "status": "INDEXED",
         "updatedAt": "2024-02-21 11:47:53.677000+01:00"
