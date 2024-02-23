@@ -1,8 +1,8 @@
 import json
 from pprint import pprint
+import argparse
 
 import boto3
-import argparse
 
 q_client = boto3.client("qbusiness")  # noqa
 
@@ -12,7 +12,7 @@ def check_response(response: dict, http_status_code=200) -> bool:
     return True
 
 
-def list_conversations(app_id="", usr_id="", verbose=False) -> list[dict]:
+def list_conversations(app_id="", usr_id="", verbose=False) -> list[dict] | None:
     r_conversations: list[dict] = list[dict]()
     next_token: str = ""
     while True:
@@ -39,9 +39,10 @@ def list_conversations(app_id="", usr_id="", verbose=False) -> list[dict]:
             next_token = response["nextToken"]
     if len(r_conversations) > 0:
         return r_conversations
+    return None
 
 
-def list_messages(app_id="", usr_id="", conv_id="", verbose=False) -> list[dict]:
+def list_messages(app_id="", usr_id="", conv_id="", verbose=False) -> list[dict] | None:
     r_messages: list[dict] = list[dict]()
     next_token: str = ""
     while True:
@@ -68,6 +69,7 @@ def list_messages(app_id="", usr_id="", conv_id="", verbose=False) -> list[dict]
             next_token = response["nextToken"]
     if len(r_messages) > 0:
         return r_messages
+    return None
 
 
 def pretty_print(convs: list[dict] = None):

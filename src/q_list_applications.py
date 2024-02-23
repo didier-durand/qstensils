@@ -1,8 +1,8 @@
 import json
 from pprint import pprint
+import argparse
 
 import boto3
-import argparse
 
 q_client = boto3.client("qbusiness")  # noqa
 
