@@ -1,12 +1,12 @@
 <img src="img/q-logo.png" height="120" alt="Q logo">
 
-# qstensils: utility scripts for Amazon Q
+# qstensils: tools and utility scripts for Amazon Q
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/1c826b70f5dd4b45b350c0337f75075d)](https://app.codacy.com/gh/didier-durand/qstensils/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![build workflow](https://github.com/didier-durand/qstensils/actions/workflows/build.yml/badge.svg)](https://github.com/didier-durand/qstensils/actions)
 
-Diverse utility scripts to explore and operate Amazon Q for Business Use. 
+This project gathers diverse tools and utility scripts to explore and operate Amazon Q for Business. 
 
 Amazon Q is a fully managed, generative-AI powered assistant that you can configure to answer questions, provide summaries, generate content, and complete tasks based on data in your enterprise. Amazon Q provides immediate and relevant information to employees, and helps streamline tasks and accelerate problem solving.
 
