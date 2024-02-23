@@ -18,9 +18,23 @@ def list_applications(verbose: bool = False) -> list[dict] | None:
         pprint(resp)
     check_response(resp)
     if "nextToken" in resp:
-        print("ERROR: paginated response not yet implemented for applications: please, raise a ticket")
+        print("ERROR: paginated response not yet implemented for applications: please,"
+              "open a ticket at https://github.com/didier-durand/qstensils/issues")
     if "applications" in resp:
         return resp["applications"]
+    return None
+
+
+def list_plugins(application_id: str = "", verbose: bool = False) -> list[dict] | None:
+    resp = q_client.list_plugins(applicationId=application_id, maxResults=50)
+    if verbose:
+        pprint(resp)
+    check_response(resp)
+    if "nextToken" in resp:
+        print("ERROR: paginated response not yet implemented for plugins: please,"
+              " open a ticket at https://github.com/didier-durand/qstensils/issues")
+    if "plugins" in resp:
+        return resp["plugins"]
     return None
 
 
@@ -30,7 +44,8 @@ def list_indices(application_id: str = "", verbose: bool = False) -> list[dict] 
         pprint(resp)
     check_response(resp)
     if "nextToken" in resp:
-        print("ERROR: paginated response not yet implemented for indices: please, raise a ticket")
+        print("ERROR: paginated response not yet implemented for indices: please,"
+              " open a ticket at https://github.com/didier-durand/qstensils/issues")
     if "indices" in resp:
         return resp["indices"]
     return None
@@ -42,7 +57,8 @@ def list_data_sources(application_id: str = "", index_id: str = "", verbose: boo
         pprint(resp)
     check_response(resp)
     if "nextToken" in resp:
-        print("ERROR: paginated response not yet implemented for indices: please, raise a ticket")
+        print("ERROR: paginated response not yet implemented for indices: please,"
+              "o pen a ticket at https://github.com/didier-durand/qstensils/issues")
     if "dataSources" in resp:
         return resp["dataSources"]
     return None
@@ -54,7 +70,8 @@ def list_retrievers(application_id: str = "", verbose: bool = False) -> list[dic
         pprint(resp)
     check_response(resp)
     if "nextToken" in resp:
-        print("ERROR: paginated response not yet implemented for retrievers: please, raise a ticket")
+        print("ERROR: paginated response not yet implemented for retrievers: please,"
+              " open a ticket at https://github.com/didier-durand/qstensils/issues")
     if "retrievers" in resp:
         return resp["retrievers"]
     return None
@@ -66,7 +83,8 @@ def list_web_experiences(application_id: str = "", verbose: bool = False) -> lis
         pprint(resp)
     check_response(resp)
     if "nextToken" in resp:
-        print("ERROR: paginated response not yet implemented for web experiences: please, raise a ticket")
+        print("ERROR: paginated response not yet implemented for web experiences: please,"
+              " open a ticket at https://github.com/didier-durand/qstensils/issues")
     if "webExperiences" in resp:
         return resp["webExperiences"]
     return None
@@ -109,6 +127,16 @@ if __name__ == "__main__":
                             idx_data_sources.append(data_source)
                         index["dataSources"] = idx_data_sources
                 application["indices"] = app_indices
+            plugins: list[dict] = list_plugins(application_id=app_id, verbose=args.verbose)
+            if plugins is not None and len(plugins) > 0:
+                app_plugins: list[dict] = list[dict]()
+                for plugin in plugins:
+                    plg_id = plugin["pluginId"]
+                    plugin = q_client.get_plugin(applicationId=app_id)
+                    check_response(plugin)
+                    del plugin["ResponseMetadata"]
+                    app_plugins.append(plugin)
+                application["plugins"] = app_plugins
             retrievers: list[dict] = list_retrievers(application_id=app_id, verbose=args.verbose)
             if retrievers is not None and len(retrievers) > 0:
                 app_retrievers: list[dict] = list[dict]()
@@ -118,7 +146,7 @@ if __name__ == "__main__":
                     check_response(retriever)
                     del retriever["ResponseMetadata"]
                     app_retrievers.append(retriever)
-                application["retrievers"] = retrievers
+                application["retrievers"] = app_retrievers
             web_experiences: list[dict] = list_web_experiences(application_id=app_id, verbose=args.verbose)
             if web_experiences is not None and len(retrievers) > 0:
                 app_web_experiences: list[dict] = list[dict]()
