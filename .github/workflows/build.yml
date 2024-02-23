@@ -24,4 +24,4 @@ jobs:
         python -m py_compile $(git ls-files '*.py')
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --rcfile=/pylint.config
+        pylint $(git ls-files '*.py') --rcfile=./pylint.config
