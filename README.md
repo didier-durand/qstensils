@@ -17,7 +17,7 @@ python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>
 ```
 
 some example:
-```json
+```
     % python3 q_list_docs.py --app_id 64ce5747-3e5-4ec-a43-10c14d159f3 --idx_id 6b850c2-3e9-440-b4c-3dcabd8015 --json --inv
 
     <.....> 
