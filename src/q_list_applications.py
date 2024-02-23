@@ -91,8 +91,8 @@ def list_web_experiences(application_id: str = "", verbose: bool = False) -> lis
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="list applications, indexes, retrievers, web experiences, etc, "
-                                                 "running in Amazon Q for business")
+    parser = argparse.ArgumentParser(description="list applications, indexes, retrievers, web experiences, plugins,  "
+                                                 "etc,running in Amazon Q for business")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
     args = parser.parse_args()
 
