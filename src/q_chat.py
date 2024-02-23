@@ -12,11 +12,12 @@ def check_response(resp: dict, http_status_code=200) -> bool:
     return True
 
 
-def chat_sync(app_id: str = "", usr_id: str = "", cnv_id: str = "", msg_id="", prompt="", file_path="",
-              verbose=False) -> dict:
+def chat_sync(app_id: str = "", usr_id: str = "",
+              prompt="", file_path="", cnv_id: str = "", msg_id="",
+              verbose=False) -> dict:  # pylint: disable=too-many-arguments
     if cnv_id is None or cnv_id == "":
         if file_path is not None and file_path != "":
-            with open(file_path) as f:
+            with open(file_path) as f:  # pylint: disable=unspecified-encoding
                 data = f.read()
             response = q_client.chat_sync(applicationId=app_id, userId=usr_id, userMessage=prompt,
                                           attachments=[{"name": file_path, "data": data}])
