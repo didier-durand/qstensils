@@ -4,7 +4,7 @@ import argparse
 
 import boto3
 
-q_client = boto3.client("qbusiness") # noqa
+q_client = boto3.client("qbusiness")  # noqa
 
 
 def check_response(response: dict, http_status_code=200) -> bool:
@@ -12,7 +12,7 @@ def check_response(response: dict, http_status_code=200) -> bool:
     return True
 
 
-def list_documents(app_id="", idx_id="", verbose=False) -> list[dict]:
+def list_documents(app_id="", idx_id="", verbose=False) -> list[dict] | None:
     r_docs: list[dict] = list[dict]()
     next_token: str = ""
     while True:
@@ -39,6 +39,7 @@ def list_documents(app_id="", idx_id="", verbose=False) -> list[dict]:
             next_token = response["nextToken"]
     if len(r_docs) > 0:
         return r_docs
+    return None
 
 
 def pretty_print(docs: list[dict] = None):
