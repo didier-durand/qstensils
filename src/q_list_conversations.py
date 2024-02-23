@@ -33,7 +33,7 @@ def list_conversations(app_id="", usr_id="", verbose=False) -> list[dict] | None
             convs: list = response["conversations"]
             if len(convs) > 0:
                 r_conversations.extend(convs)
-        if "nextToken" not in response or response["nextToken"] == "":
+        if "nextToken" not in response or response["nextToken"] == "":  # pylint: disable=no-else-break
             break
         else:
             next_token = response["nextToken"]
@@ -63,7 +63,7 @@ def list_messages(app_id="", usr_id="", conv_id="", verbose=False) -> list[dict]
             convs: list = response["messages"]
             if len(convs) > 0:
                 r_messages.extend(convs)
-        if "nextToken" not in response or response["nextToken"] == "":
+        if "nextToken" not in response or response["nextToken"] == "":  # pylint: disable=no-else-break
             break
         else:
             next_token = response["nextToken"]

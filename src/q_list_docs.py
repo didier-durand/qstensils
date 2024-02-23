@@ -33,7 +33,7 @@ def list_documents(app_id="", idx_id="", verbose=False) -> list[dict] | None:
             docs: list = response["documentDetailList"]
             if len(docs) > 0:
                 r_docs.extend(docs)
-        if "nextToken" not in response or response["nextToken"] == "":
+        if "nextToken" not in response or response["nextToken"] == "":  # pylint: disable=no-else-break
             break
         else:
             next_token = response["nextToken"]
