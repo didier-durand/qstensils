@@ -86,7 +86,7 @@ if __name__ == "__main__":
             application = q_client.get_application(applicationId=app_id)
             check_response(application)
             del application["ResponseMetadata"]
-            q_objects.append(application),
+            q_objects.append(application)
             indices: list[dict] = list_indices(application_id=app_id, verbose=args.verbose)
             if indices is not None and len(indices) > 0:
                 app_indices: list[dict] = list[dict]()
