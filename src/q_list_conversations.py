@@ -88,7 +88,7 @@ def pretty_print(convs: list[dict] = None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="list documents indexed by Amazon Q")
     parser.add_argument("-a", "--app_id", type=str, help="Q application id")
-    parser.add_argument("-u", "--usr_id", type=str, help="Q index id")
+    parser.add_argument("-u", "--usr_id", type=str, help="Q user id")
     parser.add_argument("-j", "--json", action="store_true", help="json format for results")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
     args = parser.parse_args()
