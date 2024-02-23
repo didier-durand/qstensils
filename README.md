@@ -1,8 +1,9 @@
-<img src="img/q-logo.png" height="120">
+<img src="img/q-logo.png" height="120" alt="Q logo">
 
 # qstensils: utility scripts for Amazon Q
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/1c826b70f5dd4b45b350c0337f75075d)](https://app.codacy.com/gh/didier-durand/qstensils/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 Diverse utility scripts to explore and operate Amazon Q for Business Use. 
 
@@ -15,7 +16,7 @@ python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>
 ```
 
 some example:
-``` 
+```json
     % python3 q_list_docs.py --app_id 64ce5747-3e5-4ec-a43-10c14d159f3 --idx_id 6b850c2-3e9-440-b4c-3dcabd8015 --json --inv
 
     <.....> 
@@ -76,7 +77,7 @@ TOTAL: 999
 ```
 
 For help, use -h or --help option:
-```
+```shell
 % python3 q_list_docs.py -h                                                                                                  
 usage: q_list_docs.py [-h] [-app APP_ID] [-idx IDX_ID] [-j] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
 
