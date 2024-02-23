@@ -12,7 +12,7 @@ def check_response(resp: dict, http_status_code=200) -> bool:
     return True
 
 
-def list_applications(verbose: bool = False) -> list[dict]:
+def list_applications(verbose: bool = False) -> list[dict] | None:
     resp = q_client.list_applications(maxResults=100)
     if verbose:
         pprint(resp)
@@ -21,9 +21,10 @@ def list_applications(verbose: bool = False) -> list[dict]:
         print("ERROR: paginated response not yet implemented for applications: please, raise a ticket")
     if "applications" in resp:
         return resp["applications"]
+    return None
 
 
-def list_indices(application_id: str = "", verbose: bool = False) -> list[dict]:
+def list_indices(application_id: str = "", verbose: bool = False) -> list[dict] | None:
     resp = q_client.list_indices(applicationId=application_id, maxResults=100)
     if verbose:
         pprint(resp)
@@ -32,9 +33,10 @@ def list_indices(application_id: str = "", verbose: bool = False) -> list[dict]:
         print("ERROR: paginated response not yet implemented for indices: please, raise a ticket")
     if "indices" in resp:
         return resp["indices"]
+    return None
 
 
-def list_data_sources(application_id: str = "", index_id: str = "", verbose: bool = False) -> list[dict]:
+def list_data_sources(application_id: str = "", index_id: str = "", verbose: bool = False) -> list[dict] | None:
     resp = q_client.list_data_sources(applicationId=application_id, indexId=index_id, maxResults=10)
     if verbose:
         pprint(resp)
@@ -43,9 +45,10 @@ def list_data_sources(application_id: str = "", index_id: str = "", verbose: boo
         print("ERROR: paginated response not yet implemented for indices: please, raise a ticket")
     if "dataSources" in resp:
         return resp["dataSources"]
+    return None
 
 
-def list_retrievers(application_id: str = "", verbose: bool = False) -> list[dict]:
+def list_retrievers(application_id: str = "", verbose: bool = False) -> list[dict] | None:
     resp = q_client.list_retrievers(applicationId=application_id, maxResults=50)
     if verbose:
         pprint(resp)
@@ -54,9 +57,10 @@ def list_retrievers(application_id: str = "", verbose: bool = False) -> list[dic
         print("ERROR: paginated response not yet implemented for retrievers: please, raise a ticket")
     if "retrievers" in resp:
         return resp["retrievers"]
+    return None
 
 
-def list_web_experiences(application_id: str = "", verbose: bool = False) -> list[dict]:
+def list_web_experiences(application_id: str = "", verbose: bool = False) -> list[dict] | None:
     resp = q_client.list_web_experiences(applicationId=application_id, maxResults=100)
     if verbose:
         pprint(resp)
@@ -65,6 +69,7 @@ def list_web_experiences(application_id: str = "", verbose: bool = False) -> lis
         print("ERROR: paginated response not yet implemented for web experiences: please, raise a ticket")
     if "webExperiences" in resp:
         return resp["webExperiences"]
+    return None
 
 
 if __name__ == "__main__":
