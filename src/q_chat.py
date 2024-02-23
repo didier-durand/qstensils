@@ -12,9 +12,9 @@ def check_response(resp: dict, http_status_code=200) -> bool:
     return True
 
 
-def chat_sync(app_id: str = "", usr_id: str = "",
+def chat_sync(app_id: str = "", usr_id: str = "",  # pylint: disable=too-many-arguments
               prompt="", file_path="", cnv_id: str = "", msg_id="",
-              verbose=False) -> dict:  # pylint: disable=too-many-arguments
+              verbose=False) -> dict:
     if cnv_id is None or cnv_id == "":
         if file_path is not None and file_path != "":
             with open(file_path) as f:  # pylint: disable=unspecified-encoding
