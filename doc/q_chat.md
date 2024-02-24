@@ -1,4 +1,4 @@
-# <UNDER CONSTRUCTION>
+#  UNDER CONSTRUCTION !
 the q_chat script allows you to chat with the Amazon Q assistant from a shell script.
 The question prompt is sent to the Q application (defined by its id) and a json structure is returned.
 

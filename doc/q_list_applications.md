@@ -1,4 +1,4 @@
-# <UNDER CONSTRUCTION>
+# UNDER CONSTRUCTION !
 
 An Amazon Q application is a bundle of multiple components working together. 
 They are defined in the service documentation at page.

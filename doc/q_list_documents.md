@@ -1,4 +1,4 @@
-# <UNDER CONSTRUCTION>
+# UNDER CONSTRUCTION !
 
 q_list_docs is a tool to list the documents loaded into the Q index as part of its features based on Retrieval-Augmented Generation (RAG). Retrieval Augmented Generation
 Retrieval Augmented Generation (RAG) is a natural language processing (NLP) technique. Using RAG, generative artificial intelligence (generative AI) is conditioned on specific documents that are retrieved from a dataset. Amazon Q has a built-in RAG system. A RAG model has the following two components: a) a retrieval component retrieves relevant documents for the user query.
