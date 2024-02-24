@@ -74,7 +74,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.app_id is None or args.idx_id is None:
-        raise ValueError("Q application id and index id must be specified - usage: python3 q_list_docs.py "
+        raise ValueError("Q application id and index id must be specified - usage: python3 q_list_documents.py "
                          "--app_id <q-app-id> --idx_id <q-idx-id>")
     if args.include is not None and args.exclude is not None:
         raise ValueError("either --include or --exclude list of status can be specified but not both simultaneously")
