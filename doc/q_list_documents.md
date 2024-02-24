@@ -30,18 +30,14 @@ Filtering based on file status is available. For example, to retrieve all files 
 
 ### Usage:
 
-Help: to obtain all details about possible command options, 
-
-
-## To obtain a list indexed documents with their metadata
 to obtain a full list of all documents, enter on command line from /src directory:
-```shell
+```
 python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
 ```
 
 some example:
 ```
-    % python3 q_list_docs.py --app_id application-id --idx_id index-id --json --inv
+    % python3 q_list_docs.py --app_id 123-abc-456 --idx_id 789-xyz-987  --json --inv
 
     <.....> 
     {
