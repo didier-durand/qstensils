@@ -24,15 +24,22 @@ relevant documents for the user query. b) a generation component (based on LLM(s
 the retrieved documents and then generates an answer to the query using a large language model. The documents provided 
 by the retriever allow the LLM to deliver a more specific answer to the question.
 
-q_list_docs inventories those docs and returns them in JSON structure that can be further processed by piping it into other shell utilities like jq, sed, etc.
-
-Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed by the indexeer of your Amazon Q application, you can type the following comm
+q_list_docs inventories those docs and returns them in JSON structure that can be further processed by piping it into 
+other shell utilities like jq, sed, etc.
 
 ### Usage
 
 to obtain a full list of all documents, enter on command line from /src directory:
 ```
 python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
+```
+
+Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed, i.e 
+are not in `INDEXED`status, by the indexer of your Amazon Q application when doing a data source synchronization, you 
+can type the following command:
+
+```
+python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id> --exclude INDEXED
 ```
 
 some example (with a fraction of the results):
