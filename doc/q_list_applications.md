@@ -8,7 +8,8 @@ the data source(s) from which the index is built, the retriever retrieving the d
 for answering the user prompts, the web experience offering a default interactive user interface.
 
 q_list_applications will call the various required Q APIs to aggregate those objects in a hierarchical 
-manner representing dependencies among them.
+manner representing dependencies among them in the returned json. This json is an array comprising one aggregate 
+object per application: see next section.
 
 ### Usage
 
