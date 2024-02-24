@@ -35,7 +35,7 @@ to obtain a full list of all documents, enter on command line from /src director
 python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
 ```
 
-some example:
+some example (with a fraction of the results):
 ```
     % python3 q_list_docs.py --app_id 123-abc-456 --idx_id 789-xyz-987  --json --inv
 
