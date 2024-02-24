@@ -28,7 +28,7 @@ q_list_docs inventories those docs and returns them in JSON structure that can b
 
 Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed by the indexeer of your Amazon Q application, you can type the following comm
 
-### Usage:
+### Usage
 
 to obtain a full list of all documents, enter on command line from /src directory:
 ```
