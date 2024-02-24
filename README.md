@@ -40,7 +40,16 @@ like jq, sed, awk, etc.
 Amazon Q is a fully managed, generative-AI powered assistant that can be configured to answer questions, 
 provide summaries, generate content, and complete tasks based on data in your enterprise. Amazon Q 
 provides immediate and relevant information to its users, and helps streamline tasks and 
-accelerate problem solving.
+accelerate problem-solving.
+
+An Amazon Q application relies on a corpus of documents to build its specific Q index. This corpus of documents is 
+stored in one or more document repositories (S3, Jira, Quip, etc.) called Q data sources. The answers to user questions 
+by the assistant will be prepared through the leverage of RAG technology. 
+
+[Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag)(RAG) is a natural language processing (NLP) technique. It is composed of a 
+language model-based system, usually a [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) (LLM), that accesses external knowledge sources 
+to complete tasks. This enables more factual consistency, improves reliability of the generated responses, and helps 
+to mitigate the problem of "hallucinations".
 
 ### Security
 
