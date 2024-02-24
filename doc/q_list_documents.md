@@ -1,14 +1,34 @@
-# UNDER CONSTRUCTION !
+## q_list_documents
 
-q_list_docs is a tool to list the documents loaded into the Q index as part of its features based on Retrieval-Augmented Generation (RAG). Retrieval Augmented Generation
-Retrieval Augmented Generation (RAG) is a natural language processing (NLP) technique. Using RAG, generative artificial intelligence (generative AI) is conditioned on specific documents that are retrieved from a dataset. Amazon Q has a built-in RAG system. A RAG model has the following two components: a) a retrieval component retrieves relevant documents for the user query.
-b) b generation component takes the query and the retrieved documents and then generates an answer to the query using a large language model.
+* [Rationale](#rationale)
+* [Usage](#usage)
+* [Help and Security](#help-and-security)
+
+### Rationale
+
+q_list_documents is a tool to list the documents loaded into the Q index. This list can be used to confirm its content, 
+confirm its completeness (via document status), establish its freshness (via dates of last updates), etc.
+
+An Amazon Q application relies on a corpus of documents to build its specific Q index. This corpus of documents is 
+stored in one or more document repositories (S3, Jira, Quip, etc.) called Q data sources. The answers to user questions 
+by the assistant will be prepared through the leverage of RAG technology. [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag) 
+(RAG) is a natural language processing (NLP) technique. It is composed of a language model-based system, 
+usually a [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) (LLM), that accesses 
+external knowledge sources to complete tasks. 
+This enables more factual consistency, improves reliability of the generated responses, and helps to mitigate the 
+problem of "hallucination". Using RAG, generative artificial intelligence (generative AI) is conditioned on specific 
+documents that are retrieved from a well-defined dataset. 
+
+Amazon Q has a built-in RAG system. The RAG model has the following two components: a) a retrieval component retrieves 
+relevant documents for the user query. b) a generation component (based on LLM(s)) which takes the query and 
+the retrieved documents and then generates an answer to the query using a large language model. The documents provided 
+by the retriever allow the LLM to deliver a more specific answer to the question.
 
 q_list_docs inventories those docs and returns them in JSON structure that can be further processed by piping it into other shell utilities like jq, sed, etc.
 
 Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed by the indexeer of your Amazon Q application, you can type the following comm
 
-Usage:
+### Usage:
 
 Help: to obtain all details about possible command options, 
 
@@ -21,7 +41,7 @@ python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>
 
 some example:
 ```
-    % python3 q_list_docs.py --app_id 64ce5747-3e5-4ec-a43-10c14d159f3 --idx_id 6b850c2-3e9-440-b4c-3dcabd8015 --json --inv
+    % python3 q_list_docs.py --app_id application-id --idx_id index-id --json --inv
 
     <.....> 
     {
@@ -63,7 +83,7 @@ some example:
         "createdAt": "2024-02-21 11:31:00.709000+01:00",
         "documentId": "s3://bucket-name/What Ever Happened to Baby Jane?.json",
         "error": {},
-        "status": "INDEXED",
+        "status": "DOCUMENT_FAILED_TO_INDEX",
         "updatedAt": "2024-02-21 11:47:46.031000+01:00"
     },
     {
@@ -80,9 +100,14 @@ DOCUMENT_FAILED_TO_INDEX: 7
 TOTAL: 999
 ```
 
-For help, use -h or --help option:
-```shell
-% python3 q_list_documents.py -h                                                                                                  
+### Help and Security
+
+To properly set up the security definitions in AWS account for use of this script, see [README](/README.md)
+
+```
+% python3 q_list_documents.py -h
+
+
 usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-j] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
 
 list documents indexed by Amazon Q
