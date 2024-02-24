@@ -22,11 +22,12 @@ We will add new scripts based on your demand: feel free to cut a ticket
 
 We currently provide the following utilities:
 1. [q_list_applications](doc/q_list_applications.md) to inventory the applications existing in a given AWS account. The returned json structure
-details the various components (indices, data source, retrievers, etc.) of those applications
-2. [q_list_documents](doc/q_list_documents.md) to list all the documents of a Q index and get all their associated metadata,
+details the various components (indices, data source, retrievers, etc.) of those Amazon Q applications.
+2. [q_list_documents](doc/q_list_documents.md) to list all the documents of an Amazon Q index and get all their associated metadata,
 in particular their status. The returned list can be filtered (via inclusion or exclusion) to return 
 only a fraction of those documents for example based on their indexing status.
-3. [q_list_conversations](doc/q_list_conversations.md) to obtain all list of all past conversations with a given application user as remembered by Q
+3. [q_list_conversations](doc/q_list_conversations.md) to obtain all list of all past conversations between 
+a given application and a user as remembered by Amazon Q.
 4. [q_chat](doc/q_chat.md) to be able to script conversations with the assistant of Amazon Q.
 
 All those scripts return json structures that can be further processed in [shell pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)) with various utilities 
@@ -36,21 +37,22 @@ like jq, sed, awk, etc.
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/bZsIPinetV4/0.jpg)](http://www.youtube.com/watch?v=bZsIPinetV4 "Amazon Q")
 
-Amazon Q is a fully managed, generative-AI powered assistant that you can configure to answer questions, 
+Amazon Q is a fully managed, generative-AI powered assistant that can be configured to answer questions, 
 provide summaries, generate content, and complete tasks based on data in your enterprise. Amazon Q 
-provides immediate and relevant information to employees, and helps streamline tasks and 
+provides immediate and relevant information to its users, and helps streamline tasks and 
 accelerate problem solving.
 
 ### Security
 
-The scripts assume that the AWS user reflected by environment variables named `AWS_ACCESS_KEY_ID` and 
-`AWS_SECRET_ACCESS_KEY` has proper credentials to access the APIs of Amazon Q. See 
+The scripts of this project assume that the AWS user reflected by environment variables named `AWS_ACCESS_KEY_ID` and 
+`AWS_SECRET_ACCESS_KEY` has proper [IAM credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) in terms of authorizations 
+to access the APIs of Amazon Q in the AWS account. See 
 [IAM policy examples](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security_iam_id-based-policy-examples.html) 
 in the [Security section](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security-iam.html) of Q Documentation for all details.
 
 ### Usage
 
-from the /src directory, following commands can be used to get all command options
+from the /src directory of this project, the following commands can be used to get all command options
 
 for list_applications.py
 ```
@@ -126,14 +128,3 @@ options:
                         Q parent message id (only to continue an existing conversation)
   -v, --verbose         verbose mode
 ```
-
-
-
-
-### Security
-
-The scripts assume that the AWS user reflected by environment variables named `AWS_ACCESS_KEY_ID` and 
-`AWS_SECRET_ACCESS_KEY` has proper credentials to access the APIs of Amazon Q. See 
-[IAM policy examples](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security_iam_id-based-policy-examples.html) 
-in the [Security section](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/security-iam.html) of Q Documentation for all details.
-
