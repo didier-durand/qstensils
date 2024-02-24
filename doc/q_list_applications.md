@@ -1,4 +1,14 @@
-# UNDER CONSTRUCTION !
+## q_list_applications
+
+An Amazon Q application is a bundle of multiple components working together. 
+They are detailed on the [Concepts page](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/concepts-terms.html) of the service documentation.
+
+The most important ones are the application itself, its index delivering the RAG features, 
+the data source(s) from which the index is built, the retriever retrieving the documents used 
+for answering the user prompts, the web experience offering a default interactive user interface.
+
+q_list_applications will call the various required Q APIs to aggregate those objects in a hierarchical 
+manner representing dependencies among them.
 
 ### Usage
 
@@ -171,10 +181,3 @@
 ]
 
 ```
-
-An Amazon Q application is a bundle of multiple components working together. 
-They are defined in the service documentation at page.
-
-The most important ones are the application itself, its index delivering the RAG features, 
-the data source(s) from which the index is built, a retriever retrieving the documents used 
-for answering the user prompts, the web experience offering a default interactive user interface.
