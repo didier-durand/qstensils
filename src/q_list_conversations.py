@@ -94,7 +94,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.app_id is None or args.usr_id is None:
-        raise ValueError("Q application id and user id must be specified - usage: python3 q_list_docs.py "
+        raise ValueError("Q application id and user id must be specified - usage: python3 q_list_documents.py "
                          "--app_id <q-app-id> --usr_id <q-usr-id>")
     if args.verbose:
         print("Q API list_docs() called with app_id:", args.app_id, " - usr-id:", args.usr_id)
