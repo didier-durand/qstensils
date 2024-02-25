@@ -15,7 +15,7 @@ and document scan rate.
 ### Usage
 
 ```
-% python3 q_list_data_source_sync_jobs.py -a 64ce5747-3ce5-43ec-a433-10c143d159f3 -i 69b850c2-3e91-4640-b4dc-3dcabdd28015 -d 7595f4bf-7de1-4821-8853-643798cf6b20
+% python3 q_list_data_source_sync_jobs.py -a <app-id> -i <idx_id> -d <data-source-id>
 
 
 [
