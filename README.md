@@ -67,6 +67,7 @@ in the [Security section](https://docs.aws.amazon.com/amazonq/latest/business-us
 from the /src directory of this project, the following commands can be used to get all command options
 
 for list_applications.py
+
 ```
 % python3 q_list_applications.py  -h
 usage: q_list_applications.py [-h] [-v]
@@ -76,6 +77,25 @@ list applications, indexes, retrievers, web experiences, plugins, etc. running i
 options:
   -h, --help     show this help message and exit
   -v, --verbose  verbose mode
+```
+
+q_list_data_source_sync_jobs
+
+```
+% python3 q_list_data_source_sync_jobs.py -h 
+usage: q_list_data_source_sync_jobs.py [-h] [-a APP_ID] [-i IDX_ID] [-d DS_ID] [-v]
+
+list synchronization jobs executed for a given data source of an Amazon Q application
+
+options:
+  -h, --help            show this help message and exit
+  -a APP_ID, --app_id APP_ID
+                        Q application id
+  -i IDX_ID, --idx_id IDX_ID
+                        Q data source id
+  -d DS_ID, --ds_id DS_ID
+                        Q data source id
+  -v, --verbose         verbose mode
 ```
 
 for q_list_documents.py
@@ -100,6 +120,7 @@ options:
   -inv, --inventory     with document inventory
   -v, --verbose         verbose mode
 ```
+
 for q_list_conversations.py
 
 ```
@@ -119,6 +140,7 @@ options:
 
 ```
 for q_chat.py
+
 ```
 % python3 q_chat.py  -h                                                                                                                                                                                                
 usage: q_chat.py [-h] [-a APP_ID] [-u USR_ID] [-p PROMPT] [-f FILE] [-c CNV_ID] [-m MSG_ID] [-v]
