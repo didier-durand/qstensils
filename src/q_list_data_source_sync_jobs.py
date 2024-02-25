@@ -36,11 +36,10 @@ def list_data_source_sync_jobs_with_details(app_id: str = "", idx_id: str = "",
                 duration = job["endTime"] - job["startTime"]
                 if "duration_s" in job:
                     raise ValueError("duration_s dict key already present")
-                else:
-                    job["duration"] = duration
-                    job["duration_s"] = duration.seconds
-                    if "metrics" in job and "documentsScanned" in job["metrics"]:
-                        job["metrics"]["scanRate"] = str(int(job["metrics"]["documentsScanned"]) / int(duration.seconds))
+                job["duration"] = duration
+                job["duration_s"] = duration.seconds
+                if "metrics" in job and "documentsScanned" in job["metrics"]:
+                    job["metrics"]["scanRate"] = str(int(job["metrics"]["documentsScanned"]) / int(duration.seconds))
         return jobs
     return None
 
