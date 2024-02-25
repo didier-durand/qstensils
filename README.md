@@ -29,9 +29,10 @@ per document.
 3. [q_list_documents](doc/q_list_documents.md) to list all the documents of an Amazon Q index and get all their associated metadata,
 in particular their status. The returned list can be filtered (via inclusion or exclusion) to return 
 only a fraction of those documents for example based on their indexing status.
-4[q_list_conversations](doc/q_list_conversations.md) to obtain all list of all past conversations between 
+4. [q_list_conversations](doc/q_list_conversations.md) to obtain all list of all past conversations between 
 a given application and a user as remembered by Amazon Q.
-5[q_chat](doc/q_chat.md) to be able to script conversations with the assistant of Amazon Q.
+5. [q_chat](doc/q_chat.md) to be able to script conversations (based on single or multiple messages) with the 
+assistant of Amazon Q.
 
 All those scripts return json structures that can be further processed in [shell pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)) with various utilities 
 like jq, sed, awk, etc.
