@@ -46,7 +46,7 @@ Use with an attachment, here the poem The Tyger by William Blake (see /data to u
 }
 ```
 
-Use when continuing a conversation: -c & -m parameter are set to match the values provided by Q answer, 
+Use when continuing a conversation: -c and -m parameter are set to match the values provided by Q answer, 
 here the conversation and message ids of poem explanation above. In particular -m must be set to value 
 of "systemMessageId", which is last message in conversation flow.
 
