@@ -17,24 +17,24 @@ and document scan rate.
 ```
 % python3 q_list_data_source_sync_jobs.py -a <app-id> -i <idx_id> -d <data-source-id>
 
-
 [
     {
-        "endTime": "2024-02-25 07:28:12.576000+01:00",
+        "endTime": "2024-02-25 07:48:40.853000+01:00",
         "error": {},
         "executionId": "1414a953-214e-4ff5-abc8-556d4ce3a1b1",
         "metrics": {
             "documentsAdded": "0",
             "documentsDeleted": "0",
-            "documentsFailed": "0",
-            "documentsModified": "810",
+            "documentsFailed": "6",
+            "documentsModified": "993",
             "documentsScanned": "999",
-            "scanRate": "2.692722371967655"
+            "scanRate": "0.624765478424015",
+            "averageDocumentScanDuration": "1.6006006006006006"
         },
         "startTime": "2024-02-25 07:22:00.869000+01:00",
-        "status": "SYNCING_INDEXING",
-        "duration": "0:06:11.707000",
-        "duration_s": 371
+        "status": "INCOMPLETE",
+        "duration": "0:26:39.984000",
+        "duration_s": 1599
     },
     {
         "endTime": "2024-02-24 11:40:38.389000+01:00",
@@ -46,7 +46,8 @@ and document scan rate.
             "documentsFailed": "8",
             "documentsModified": "991",
             "documentsScanned": "999",
-            "scanRate": "0.43134715025906734"
+            "scanRate": "0.43134715025906734",
+            "averageDocumentScanDuration": "2.3183183183183185"
         },
         "startTime": "2024-02-24 11:02:01.815000+01:00",
         "status": "INCOMPLETE",
@@ -63,7 +64,8 @@ and document scan rate.
             "documentsFailed": "13",
             "documentsModified": "979",
             "documentsScanned": "999",
-            "scanRate": "0.4459821428571429"
+            "scanRate": "0.4459821428571429",
+            "averageDocumentScanDuration": "2.2422422422422423"
         },
         "startTime": "2024-02-24 09:25:17.527000+01:00",
         "status": "INCOMPLETE",
@@ -80,7 +82,8 @@ and document scan rate.
             "documentsFailed": "7",
             "documentsModified": "0",
             "documentsScanned": "999",
-            "scanRate": "0.4714487966021708"
+            "scanRate": "0.4714487966021708",
+            "averageDocumentScanDuration": "2.121121121121121"
         },
         "startTime": "2024-02-21 11:25:04.942000+01:00",
         "status": "INCOMPLETE",
