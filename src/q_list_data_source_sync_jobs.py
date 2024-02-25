@@ -39,7 +39,9 @@ def list_data_source_sync_jobs_with_details(app_id: str = "", idx_id: str = "",
                 job["duration"] = duration
                 job["duration_s"] = duration.seconds
                 if "metrics" in job and "documentsScanned" in job["metrics"]:
-                    job["metrics"]["scanRate"] = str(int(job["metrics"]["documentsScanned"]) / int(duration.seconds))
+                    scan_rate = int(job["metrics"]["documentsScanned"]) / int(duration.seconds)
+                    job["metrics"]["scanRate"] = str(scan_rate)
+                    job["metrics"]["averageDocumentScanDuration"] = str(1 / scan_rate)
         return jobs
     return None
 
