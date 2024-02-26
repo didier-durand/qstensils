@@ -36,16 +36,16 @@ def chat_sync(app_id: str = "", usr_id: str = "",  # pylint: disable=too-many-ar
     return response
 
 
-def chat_sync_with_multiple_prompts(app_id="", usr_id="", prompts: list[str] = None, verbose=False) -> list[
-                                                                                                           dict] | None:
+def chat_sync_with_multiple_prompts(app_id="", usr_id="", prompts: list[str] = None, verbose=False) \
+        -> list[dict] | None:
     if prompts is None or len(prompts) == 0:
-        return
+        return None
     conversations: list[dict] = list[dict]()
     cnv_id: str = ""
     msg_id: str = ""
     for prompt in prompts:
         if prompt.startswith("c:"):
-            if cnv_id is not None and not "" and msg_id is not None and not "":
+            if cnv_id is not None and cnv_id != "" and msg_id is not None and msg_id != "":
                 resp = chat_sync(app_id=app_id, usr_id=usr_id, cnv_id=cnv_id, msg_id=msg_id,
                                  prompt=prompt, verbose=verbose)
             else:
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
     p_str = args.prompt
     if os.path.isfile(p_str):
-        with open(p_str) as file:
+        with open(p_str, encoding="us-ascii") as file:
             f_prompts = file.read()
             f_prompts: [str] = f_prompts.split("\n")
             answer = chat_sync_with_multiple_prompts(app_id=args.app_id, usr_id=args.usr_id,
