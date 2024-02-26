@@ -130,7 +130,7 @@ includes or
 
 ### Help and Security
 
-To properly set up the security definitions in AWS account for use of this script, see [README](/README.md)
+To properly set up the security definitions in AWS account for use of this script, see [README](/)
 
 ```
 % python3 q_list_conversations.py -h                                            
