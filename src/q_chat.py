@@ -5,6 +5,8 @@ import argparse
 
 import boto3
 
+from q_list_conversations import get_q_conversation
+
 q_client = boto3.client("qbusiness")  # noqa
 
 
@@ -40,7 +42,7 @@ def chat_sync_with_multiple_prompts(app_id="", usr_id="", prompts: list[str] = N
         -> list[dict] | None:
     if prompts is None or len(prompts) == 0:
         return None
-    conversations: list[dict] = list[dict]()
+    cnv_ids: list[str] = list[str]()
     cnv_id: str = ""
     msg_id: str = ""
     for prompt in prompts:
@@ -52,10 +54,14 @@ def chat_sync_with_multiple_prompts(app_id="", usr_id="", prompts: list[str] = N
                 raise ValueError("conversation id and parent message id must be available for chained prompts")
         else:
             resp = chat_sync(app_id=app_id, usr_id=usr_id, prompt=prompt, verbose=args.verbose)
-        conversations.append(resp)
         cnv_id = resp["conversationId"]
         msg_id = resp["systemMessageId"]
-    if len(conversations) > 0:
+        if cnv_id not in cnv_ids:
+            cnv_ids.append(cnv_id)
+    if len(cnv_ids) > 0:
+        conversations: list[dict] = list[dict]()
+        for cnv_id in cnv_ids:
+            conversations.append(get_q_conversation(app_id=app_id, usr_id=usr_id, cnv_id=cnv_id, verbose=verbose))
         return conversations
     return None
 
@@ -70,6 +76,7 @@ if __name__ == "__main__":
                                                          "(only to continue an existing conversation)")
     parser.add_argument("-m", "--msg_id", type=str, help="Q parent message id "
                                                          "(only to continue an existing ""conversation)")
+    parser.add_argument("-d", "--details", action="store_true", help="full conversation details")
     parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
     args = parser.parse_args()
 
@@ -78,9 +85,14 @@ if __name__ == "__main__":
         with open(p_str, encoding="us-ascii") as file:
             f_prompts = file.read()
             f_prompts: [str] = f_prompts.split("\n")
-            answer = chat_sync_with_multiple_prompts(app_id=args.app_id, usr_id=args.usr_id,
-                                                     prompts=f_prompts, verbose=args.verbose)
+        answer = chat_sync_with_multiple_prompts(app_id=args.app_id, usr_id=args.usr_id,
+                                                 prompts=f_prompts, verbose=args.verbose)
     else:
-        answer = chat_sync(app_id=args.app_id, usr_id=args.usr_id, cnv_id=args.cnv_id, msg_id=args.msg_id,
-                           prompt=args.prompt, file_path=args.file, verbose=args.verbose)
+        completion = chat_sync(app_id=args.app_id, usr_id=args.usr_id, cnv_id=args.cnv_id, msg_id=args.msg_id,
+                               prompt=args.prompt, file_path=args.file, verbose=args.verbose)
+        if args.details:
+            answer = get_q_conversation(app_id=args.app_id, usr_id=args.usr_id, cnv_id=completion['conversationId'],
+                                        verbose=args.verbose)
+        else:
+            answer = completion
     print(json.dumps(answer, indent=4, default=str))
