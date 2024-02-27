@@ -82,6 +82,14 @@ def list_conversations_with_messages(app_id: str = "", usr_id: str = "", verbose
     return None
 
 
+def get_q_conversation(app_id: str = "", usr_id: str = "", cnv_id="", verbose=False) -> dict | None:
+    convs = list_conversations_with_messages(app_id, usr_id, verbose)
+    for conv in convs:
+        if conv["conversationId"] == cnv_id:
+            return conv
+    return None
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="list documents indexed by Amazon Q")
     parser.add_argument("-a", "--app_id", type=str, help="Q application id")
