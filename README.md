@@ -21,11 +21,12 @@ We will add new scripts based on your demand: feel free to cut a ticket
 [here](https://github.com/didier-durand/qstensils/issues) if you have a need or idea!
 
 We currently provide the following utilities:
-1. [q_list_applications](doc/q_list_applications.md) to inventory the applications existing in a given AWS account. The returned json structure
-details the various components (indices, data source, retrievers, etc.) of those Amazon Q applications.
-2. [q_list_data_source_sync_jobs](doc/q_list_data_source_sync_jobs.md) to list the history of index synchronization jobs executed on a given 
-Q data source. This script adds additional metric like total job duration, document scan rate and average scan duration 
-per document.
+1. [q_list_applications](doc/q_list_applications.md) to inventory the applications existing in a given region of an AWS account. The returned 
+json structure details the various components (indices, data source, retrievers, etc.) of those Amazon Q 
+applications.
+2. [q_list_data_source_sync_jobs](doc/q_list_data_source_sync_jobs.md) to list the history of index synchronization 
+jobs executed on a given Q data source. This script adds additional metric like total job duration, document scan rate 
+and average scan duration per document.
 3. [q_list_documents](doc/q_list_documents.md) to list all the documents of an Amazon Q index and get all their associated metadata,
 in particular their status. The returned list can be filtered (via inclusion or exclusion) to return 
 only a fraction of those documents for example based on their indexing status.
@@ -52,8 +53,8 @@ by the assistant will be prepared through the leverage of RAG technology.
 
 [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag) (RAG) is a natural language processing (NLP) technique. It is composed of a 
 language model-based system, usually a [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) (LLM), that accesses external knowledge sources 
-to complete tasks. This enables more contextuality, factual consistency, improves reliability of the generated responses, and helps 
-to mitigate the problem of "hallucinations".
+to complete tasks. This enables more contextuality, factual consistency, improves reliability of the generated 
+responses, and helps to mitigate the problem of "hallucinations".
 
 ### Security
 
