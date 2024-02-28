@@ -1,12 +1,20 @@
 ## q_list_data_source_sync_jobs
 
-An Amazon Q application leverages [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag) (RAG) to deliver more contextuality, 
-better factual consistency, to improve reliability of the generated responses, and to help to mitigate the 
-problem of "hallucinations".
+* [Description](#description)
+* [Usage](#usage)
+* [Help and Security](#help-and-security)
 
-The RAG index is built from the data source(s) associated to the application. The documents contained in 
-those data sources are analyzed by the indexer. Their embeddings and other metadata are placed into the index 
-to be able to select the most relevant documents improving the user prompt on each questions.
+## Description
+
+An Amazon Q application leverages [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag) (aka RAG) to deliver more contextuality, 
+better factual consistency, to improve reliability of the generated responses and to help to mitigate the 
+problem of ["hallucinations"](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)).
+
+The Q RAG index is built from the content of the Q data source(s) like S3, relational databases,etc. associated to the 
+application. The documents contained in those data sources are analyzed by the indexer. Their [vector embeddings](https://en.wikipedia.org/wiki/Sentence_embedding) 
+and other metadata are placed into the index to be able to select the most relevant documents improving the user prompt 
+on each question. The Q retriever will leverage the data contained in the RAG index to fetch and add additional documents to 
+question / prompt coming from the user. This enriched prompt will allow the Q LLM to provide a better answer.
 
 Script [q_list_data_source_sync_jobs ](../src/q_list_data_source_sync_jobs.py) will list the history of all index 
 synchronization jobs that have executed on a given Q data source. It will add interesting metrics like job duration 
@@ -91,4 +99,25 @@ and document scan rate.
         "duration_s": 2119
     }
 ]
+```
+
+### Help and Security
+
+To properly set up the security definitions in AWS account for use of this script, see [README](/)
+
+```
+% python3 q_list_data_source_sync_jobs.py -h
+usage: q_list_data_source_sync_jobs.py [-h] [-a APP_ID] [-i IDX_ID] [-d DS_ID] [-v]
+
+list synchronization jobs executed for a given data source of an Amazon Q application
+
+options:
+  -h, --help            show this help message and exit
+  -a APP_ID, --app_id APP_ID
+                        Q application id
+  -i IDX_ID, --idx_id IDX_ID
+                        Q data source id
+  -d DS_ID, --ds_id DS_ID
+                        Q data source id
+  -v, --verbose         verbose mode
 ```
