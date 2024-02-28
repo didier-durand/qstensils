@@ -66,7 +66,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="list documents indexed by Amazon Q")
     parser.add_argument("-app", "--app_id", type=str, help="Q application id")
     parser.add_argument("-idx", "--idx_id", type=str, help="Q index id")
-    parser.add_argument("-j", "--json", action="store_true", help="json format for results")
     parser.add_argument("-incl", "--include", type=str, help="comma-separated list of status to include")
     parser.add_argument("-excl", "--exclude", type=str, help="comma-separated list of status to exclude")
     parser.add_argument("-inv", "--inventory", action="store_true", help="with document inventory")
@@ -95,10 +94,8 @@ if __name__ == "__main__":
                 filtered.append(document)
     else:
         filtered = documents
-    if args.json:
-        print(json.dumps(filtered, indent=4, default=str))
-    else:
-        pretty_print(filtered)
+
+    print(json.dumps(filtered, indent=4, default=str))
 
     if args.inventory:
         inventory(documents)
