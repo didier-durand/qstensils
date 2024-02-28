@@ -38,6 +38,9 @@ assistant of Amazon Q.
 All those scripts return json structures that can be further processed in [shell pipelines](https://en.wikipedia.org/wiki/Pipeline_(Unix)) with various utilities 
 like jq, sed, awk, etc.
 
+Those scripts rely on the Python AWS SDK. All APIs related to Q for business are described in details in the 
+[SDK boto3 public documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness.html).
+
 ### About Amazon Q
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/bZsIPinetV4/0.jpg)](http://www.youtube.com/watch?v=bZsIPinetV4 "Amazon Q")
@@ -71,7 +74,7 @@ from the /src directory of this project, the following commands can be used to g
 for list_applications.py
 
 ```
-% python3 q_list_applications.py  -h
+%python3 q_list_applications.py -h
 usage: q_list_applications.py [-h] [-v]
 
 list applications, indexes, retrievers, web experiences, plugins, etc. running in Amazon Q for business
