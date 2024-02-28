@@ -13,7 +13,7 @@ The most important ones are the application itself, its index delivering the RAG
 the data source(s) from which the index is built, the retriever retrieving the documents used 
 for answering the user prompts, the web experience offering a default interactive user interface.
 
-q_list_applications script will call the various required Q SDK APIs to aggregate those objects in a hierarchical 
+The [q_list_applications.py](/src/q_list_applications.py) script will call the various required Q SDK APIs to aggregate those objects in a hierarchical 
 manner representing dependencies among them in the returned json. This json is an array comprising one aggregate 
 of objects per application: see next section.
 

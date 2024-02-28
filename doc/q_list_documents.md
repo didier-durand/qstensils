@@ -24,7 +24,7 @@ relevant documents for the user query. b) a generation component (based on LLM(s
 the retrieved documents and then generates an answer to the query using a large language model. The documents provided 
 by the retriever allow the LLM to deliver a more specific answer to the question.
 
-q_list_docs inventories those docs and returns them in JSON structure that can be further processed by piping it into 
+Script [q_list_documents.py](/src/q_list_documents.py) inventories those docs and returns them in JSON structure that can be further processed by piping it into 
 other shell utilities like jq, sed, etc.
 
 ### Usage

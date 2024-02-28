@@ -22,7 +22,7 @@ message id - as last returned systemMessageId" (see example below) - of last the
 assume that you continue this conversation and restore the [LLM context window](https://klu.ai/glossary/context-window) 
 of this precedent conversation to continue the chat based on this LLM context.
 
-The q_chat script allows you to run conversations with Q. You have to provide a text file with 1 prompt per line. 
+The [q_chat.py](../src/q_chat.py) script allows you to run conversations with Q. You have to provide a text file with 1 prompt per line. 
 Prompts that are part of same conversation will be chained by prefix 'c:' at beginning of line. See example in 
 [sample file](/data/prompt_list.txt)
 

@@ -6,7 +6,7 @@
 
 ### Description
 
-q_list_conversations is a script allowing the retrieval in a json structure of the conversations 
+[q_list_conversations.py](/src/q_list_conversations.py) is a script allowing the retrieval in a json structure of the conversations 
 that happened between a named user and the Q application. It combines 2 APIs, [boto3("qbusiness").list_conversations()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_conversations.html) 
 and [boto3("qbusiness").list_messages()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_messages.html), 
 to bring together conversation and message details together in one json aggregate.
