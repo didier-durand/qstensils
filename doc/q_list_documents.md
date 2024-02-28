@@ -36,7 +36,7 @@ python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>
 
 Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed, i.e 
 are not in `INDEXED` status, by the indexer of your Amazon Q application when doing a data source synchronization, you 
-can type the following command:
+can type the following command (if you mention several statuses, just separate them with comma like `INDEXED,UPDATED)`:
 
 ```
 python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id> --exclude INDEXED
@@ -108,16 +108,16 @@ TOTAL: 999
 To properly set up the security definitions in AWS account for use of this script, see [README](/README.md)
 
 ```
-% python3 q_list_documents.py -h            
-usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
+% python3 q_list_documents.py  -h                                                                                                   
+usage: q_list_documents.py [-h] [-a APP_ID] [-i IDX_ID] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
 
 list documents indexed by Amazon Q
 
 options:
   -h, --help            show this help message and exit
-  -app APP_ID, --app_id APP_ID
+  -a APP_ID, --app_id APP_ID
                         Q application id
-  -idx IDX_ID, --idx_id IDX_ID
+  -i IDX_ID, --idx_id IDX_ID
                         Q index id
   -incl INCLUDE, --include INCLUDE
                         comma-separated list of status to include
