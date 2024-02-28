@@ -7,16 +7,16 @@
 ### Rationale
 
 q_list_documents is a tool to list the documents loaded into the Q index. This list can be used to confirm its content, 
-confirm its completeness (via document status), establish its freshness (via dates of last updates), etc.
+validate its completeness (via document status), establish its freshness (via dates of last updates), etc.
 
-An Amazon Q application relies on a corpus of documents to build its specific Q index. This corpus of documents is 
+An Amazon Q application relies on a corpus of documents to build its specific Q RAG index. This corpus of documents is 
 stored in one or more document repositories (S3, Jira, Quip, etc.) called Q data sources. The answers to user questions 
 by the assistant will be prepared through the leverage of RAG technology. [Retrieval-Augmented Generation](https://www.promptingguide.ai/techniques/rag) 
 (RAG) is a natural language processing (NLP) technique. It is composed of a language model-based system, 
-usually a [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) (LLM), that accesses 
-external knowledge sources to complete tasks. 
+usually a [Large Language Model](https://en.wikipedia.org/wiki/Large_language_model) (LLM), that accesses  external knowledge sources to complete tasks. 
+
 This enables more factual consistency, improves reliability of the generated responses, and helps to mitigate the 
-problem of "hallucination". Using RAG, generative artificial intelligence (generative AI) is conditioned on specific 
+problem of "hallucinations". Using RAG, generative artificial intelligence (generative AI) is conditioned on specific 
 documents that are retrieved from a well-defined dataset. 
 
 Amazon Q has a built-in RAG system. The RAG model has the following two components: a) a retrieval component retrieves 
@@ -35,16 +35,16 @@ python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>
 ```
 
 Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed, i.e 
-are not in `INDEXED`status, by the indexer of your Amazon Q application when doing a data source synchronization, you 
+are not in `INDEXED` status, by the indexer of your Amazon Q application when doing a data source synchronization, you 
 can type the following command:
 
 ```
 python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id> --exclude INDEXED
 ```
 
-some example (with a fraction of the results):
+some example of a complete list of documents (only fraction of the results) with global inventory at the end:
 ```
-    % python3 q_list_docs.py --app_id 123-abc-456 --idx_id 789-xyz-987  --json --inv
+    % python3 q_list_docs.py --app_id 123-abc-456 --idx_id 789-xyz-987  --inv
 
     <.....> 
     {
@@ -108,10 +108,8 @@ TOTAL: 999
 To properly set up the security definitions in AWS account for use of this script, see [README](/README.md)
 
 ```
-% python3 q_list_documents.py -h
-
-
-usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-j] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
+% python3 q_list_documents.py -h            
+usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
 
 list documents indexed by Amazon Q
 
@@ -121,7 +119,6 @@ options:
                         Q application id
   -idx IDX_ID, --idx_id IDX_ID
                         Q index id
-  -j, --json            json format for results
   -incl INCLUDE, --include INCLUDE
                         comma-separated list of status to include
   -excl EXCLUDE, --exclude EXCLUDE
