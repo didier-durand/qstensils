@@ -90,14 +90,9 @@ def list_web_experiences(application_id: str = "", verbose: bool = False) -> lis
     return None
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="list applications, indexes, retrievers, web experiences, plugins,  "
-                                                 "etc. running in Amazon Q for business")
-    parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
-    args = parser.parse_args()
-
+def list_q_objects(verbose: bool = False) -> list[dict] | None:
     q_objects: list[dict] = list[dict]()
-    applications: list[dict] = list_applications(verbose=args.verbose)
+    applications: list[dict] = list_applications(verbose=verbose)
     if applications is not None and len(applications) > 0:
         for application in applications:
             app_id = application["applicationId"]
@@ -105,7 +100,7 @@ if __name__ == "__main__":
             check_response(application)
             del application["ResponseMetadata"]
             q_objects.append(application)
-            indices: list[dict] = list_indices(application_id=app_id, verbose=args.verbose)
+            indices: list[dict] = list_indices(application_id=app_id, verbose=verbose)
             if indices is not None and len(indices) > 0:
                 app_indices: list[dict] = list[dict]()
                 for index in indices:
@@ -115,7 +110,7 @@ if __name__ == "__main__":
                     del index["ResponseMetadata"]
                     app_indices.append(index)
                     data_sources: list[dict] = list_data_sources(application_id=app_id, index_id=idx_id,
-                                                                 verbose=args.verbose)
+                                                                 verbose=verbose)
                     if data_sources is not None and len(data_sources) > 0:
                         idx_data_sources: list[dict] = list[dict]()
                         for data_source in data_sources:
@@ -127,7 +122,7 @@ if __name__ == "__main__":
                             idx_data_sources.append(data_source)
                         index["dataSources"] = idx_data_sources
                 application["indices"] = app_indices
-            plugins: list[dict] = list_plugins(application_id=app_id, verbose=args.verbose)
+            plugins: list[dict] = list_plugins(application_id=app_id, verbose=verbose)
             if plugins is not None and len(plugins) > 0:
                 app_plugins: list[dict] = list[dict]()
                 for plugin in plugins:
@@ -137,7 +132,7 @@ if __name__ == "__main__":
                     del plugin["ResponseMetadata"]
                     app_plugins.append(plugin)
                 application["plugins"] = app_plugins
-            retrievers: list[dict] = list_retrievers(application_id=app_id, verbose=args.verbose)
+            retrievers: list[dict] = list_retrievers(application_id=app_id, verbose=verbose)
             if retrievers is not None and len(retrievers) > 0:
                 app_retrievers: list[dict] = list[dict]()
                 for retriever in retrievers:
@@ -147,7 +142,7 @@ if __name__ == "__main__":
                     del retriever["ResponseMetadata"]
                     app_retrievers.append(retriever)
                 application["retrievers"] = app_retrievers
-            web_experiences: list[dict] = list_web_experiences(application_id=app_id, verbose=args.verbose)
+            web_experiences: list[dict] = list_web_experiences(application_id=app_id, verbose=verbose)
             if web_experiences is not None and len(retrievers) > 0:
                 app_web_experiences: list[dict] = list[dict]()
                 for web_experience in web_experiences:
@@ -157,5 +152,15 @@ if __name__ == "__main__":
                     del web_experience["ResponseMetadata"]
                     app_web_experiences.append(web_experience)
                 application["webExperiences"] = web_experiences
+    if len(q_objects) > 0:
+        return q_objects
+    return None
 
-    print(json.dumps(q_objects, indent=4, default=str))
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="list applications, indexes, retrievers, web experiences, plugins,  "
+                                                 "etc. running in Amazon Q for business")
+    parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
+    args = parser.parse_args()
+
+    print(json.dumps(list_q_objects(args.verbose), indent=4, default=str))
