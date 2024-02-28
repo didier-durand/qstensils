@@ -5,14 +5,16 @@
 * [Help and Security](#help-and-security)
 
 ### Description
+
 q_list_conversations is a script allowing the retrieval in a json structure of the conversations 
-that happened between an named user and the Q application. It combines 2 APIs boto3("qbusiness").list_conversations() 
-and boto3("qbusiness").list_messages() to bring together conversation and message details together in one place.
+that happened between a named user and the Q application. It combines 2 APIs, [boto3("qbusiness").list_conversations()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_conversations.html) 
+and [boto3("qbusiness").list_messages()](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/qbusiness/client/list_messages.html), 
+to bring together conversation and message details together in one json aggregate.
 
 The returned json can be further processed by utilities like sed, jq, etc. in a [shell pipeline](https://en.wikipedia.org/wiki/Pipeline_(Unix))
 
 The title of the conversation is the first prompt emitted by the user. Two types of messages exist. Those of type 
-'USER' are emitted by the user. Those of type 'SYSTEM' are returned by the Amazon Q Assistant. When the user question 
+'USER' are emitted by the user as questions. Those of type 'SYSTEM' are returned as responses by the Amazon Q Assistant. When the user question 
 or assistant answer contain one or more attachments, they are referred to in the description of the message.
 includes or 
 
@@ -133,7 +135,7 @@ includes or
 To properly set up the security definitions in AWS account for use of this script, see [README](/)
 
 ```
-% python3 q_list_conversations.py -h                                            
+% python3 q_list_conversations.py -h
 usage: q_list_conversations.py [-h] [-a APP_ID] [-u USR_ID] [-v]
 
 list documents indexed by Amazon Q
@@ -145,5 +147,4 @@ options:
   -u USR_ID, --usr_id USR_ID
                         Q user id
   -v, --verbose         verbose mode
-
 ```
