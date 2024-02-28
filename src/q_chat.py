@@ -70,7 +70,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="ask a question to a Q application and get answer")
     parser.add_argument("-a", "--app_id", type=str, help="Q application id")
     parser.add_argument("-u", "--usr_id", type=str, help="Q index id")
-    parser.add_argument("-p", "--prompt", type=str, help="question prompt")
+    parser.add_argument("-p", "--prompt", type=str, help="question prompt or path to file with "
+                                                         "list of prompts")
     parser.add_argument("-f", "--file", type=str, help="path to attachment file")
     parser.add_argument("-c", "--cnv_id", type=str, help="Q conversation id "
                                                          "(only to continue an existing conversation)")
