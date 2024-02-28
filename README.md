@@ -87,7 +87,7 @@ options:
 q_list_data_source_sync_jobs
 
 ```
-% python3 q_list_data_source_sync_jobs.py -h 
+ % python3 q_list_data_source_sync_jobs.py -h
 usage: q_list_data_source_sync_jobs.py [-h] [-a APP_ID] [-i IDX_ID] [-d DS_ID] [-v]
 
 list synchronization jobs executed for a given data source of an Amazon Q application
@@ -106,8 +106,8 @@ options:
 for q_list_documents.py
 
 ```
-% python3 q_list_documents.py  -h
-usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-j] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
+% python3 q_list_documents.py -h    
+usage: q_list_documents.py [-h] [-app APP_ID] [-idx IDX_ID] [-incl INCLUDE] [-excl EXCLUDE] [-inv] [-v]
 
 list documents indexed by Amazon Q
 
@@ -117,7 +117,6 @@ options:
                         Q application id
   -idx IDX_ID, --idx_id IDX_ID
                         Q index id
-  -j, --json            json format for results
   -incl INCLUDE, --include INCLUDE
                         comma-separated list of status to include
   -excl EXCLUDE, --exclude EXCLUDE
@@ -129,8 +128,8 @@ options:
 for q_list_conversations.py
 
 ```
-% python3 q_list_conversations.py  -h
-usage: q_list_conversations.py [-h] [-a APP_ID] [-u USR_ID] [-j] [-v]
+% python3 q_list_conversations.py -h
+usage: q_list_conversations.py [-h] [-a APP_ID] [-u USR_ID] [-v]
 
 list documents indexed by Amazon Q
 
@@ -140,15 +139,13 @@ options:
                         Q application id
   -u USR_ID, --usr_id USR_ID
                         Q user id
-  -j, --json            json format for results
   -v, --verbose         verbose mode
-
 ```
 for q_chat.py
 
 ```
-% python3 q_chat.py  -h                                                                                                                                                                                                
-usage: q_chat.py [-h] [-a APP_ID] [-u USR_ID] [-p PROMPT] [-f FILE] [-c CNV_ID] [-m MSG_ID] [-v]
+% python3 q_chat.py  -h
+usage: q_chat.py [-h] [-a APP_ID] [-u USR_ID] [-p PROMPT] [-f FILE] [-c CNV_ID] [-m MSG_ID] [-d] [-v]
 
 ask a question to a Q application and get answer
 
@@ -159,11 +156,12 @@ options:
   -u USR_ID, --usr_id USR_ID
                         Q index id
   -p PROMPT, --prompt PROMPT
-                        question prompt
-  -f FILE, --file FILE  path to attached file
+                        question prompt or path to file with list of prompts
+  -f FILE, --file FILE  path to attachment file
   -c CNV_ID, --cnv_id CNV_ID
                         Q conversation id (only to continue an existing conversation)
   -m MSG_ID, --msg_id MSG_ID
                         Q parent message id (only to continue an existing conversation)
+  -d, --details         full conversation details
   -v, --verbose         verbose mode
 ```
