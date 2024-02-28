@@ -64,8 +64,8 @@ def inventory(docs):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="list documents indexed by Amazon Q")
-    parser.add_argument("-app", "--app_id", type=str, help="Q application id")
-    parser.add_argument("-idx", "--idx_id", type=str, help="Q index id")
+    parser.add_argument("-a", "--app_id", type=str, help="Q application id")
+    parser.add_argument("-i", "--idx_id", type=str, help="Q index id")
     parser.add_argument("-incl", "--include", type=str, help="comma-separated list of status to include")
     parser.add_argument("-excl", "--exclude", type=str, help="comma-separated list of status to exclude")
     parser.add_argument("-inv", "--inventory", action="store_true", help="with document inventory")
