@@ -15,9 +15,9 @@
 
 ### Provided Tools
 
-**Disclaimer**: the scripts provided in this repository reflect the state of service Amazon Q for Business as it was launched 
+**Disclaimer**: _the scripts provided in this repository reflect the state of service Amazon Q for Business as it was launched 
 in December 2023 by AWS in Preview mode. Due to this Preview mode, the features of Amazon Q and their 
-implementation can change at any time during Preview and for General Availability. Such changes may require updates to this repository.
+implementation can change at any time during Preview and for General Availability. Such changes may require updates to this repository._
 
 This project gathers diverse tools and utility scripts to explore and operate Amazon Q for Business. 
 We will add new scripts based on your demand: feel free to cut a ticket
