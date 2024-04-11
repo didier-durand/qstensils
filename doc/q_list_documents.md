@@ -31,7 +31,7 @@ other shell utilities like jq, sed, etc.
 
 to obtain a full list of all documents, enter on command line from /src directory:
 ```
-python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
+python3 q_list_documents.py --app_id <your-q-app-id> --idx_id <your-q-idx-id>  
 ```
 
 Filtering based on file status is available. For example, to retrieve all files that could not be properly indexed, i.e 
@@ -39,12 +39,12 @@ are not in `INDEXED` status, by the indexer of your Amazon Q application when do
 can type the following command (if you mention several statuses, just separate them with comma like `INDEXED,UPDATED)`:
 
 ```
-python3 list_docs.py --app_id <your-q-app-id> --idx_id <your-q-idx-id> --exclude INDEXED
+python3 q_list_documents.py --app_id <your-q-app-id> --idx_id <your-q-idx-id> --exclude INDEXED
 ```
 
 some example of a complete list of documents (only fraction of the results) with global inventory at the end:
 ```
-    % python3 q_list_docs.py --app_id 123-abc-456 --idx_id 789-xyz-987  --inv
+    % python3 q_list_documents.py --app_id 123-abc-456 --idx_id 789-xyz-987  --inv
 
     <.....> 
     {
